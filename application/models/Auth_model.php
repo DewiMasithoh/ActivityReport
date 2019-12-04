@@ -17,8 +17,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth_model extends CI_Model
 {
-    public $table       = 'tb_user';
-    public $id          = 'tb_user.id_admin';
+    public $table       = 'user';
+    public $id          = 'user.id_admin';
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class Auth_model extends CI_Model
 
     public function login($username, $password)
     {
-        $query = $this->db->get_where('tb_user', array('username'=>$username, 'password'=>$password));
+        $query = $this->db->get_where('user', array('username'=>$username, 'password'=>$password));
         return $query->row_array();
     }
 
@@ -38,13 +38,13 @@ class Auth_model extends CI_Model
         $query = $this->db->get($this->table)->row();
 
         //jika bernilai 1 maka user tidak ditemukan
-        if (!$query) {
-            return 1;
-        }
-        //jika bernilai 2 maka user tidak aktif
-        if ($query->active == 0) {
-            return 2;
-        }
+        // if (!$query) {
+        //     return 1;
+        // }
+        // //jika bernilai 2 maka user tidak aktif
+        // if ($query->active == 0) {
+        //     return 2;
+        // }
         //jika bernilai 3 maka password salah
         if (!hash_verified($this->input->post('password'), $query->password)) {
             return 3;
@@ -55,8 +55,8 @@ class Auth_model extends CI_Model
 
     public function logout($date, $id)
     {
-        $this->db->where('tb_user.id_admin', $id);
-        $this->db->update('tb_user', $date);
+        $this->db->where('user.id_admin', $id);
+        $this->db->update('user', $date);
     }
 
     public function update($data, $id)
@@ -66,15 +66,15 @@ class Auth_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function get_by_id($id)
-    {
-        $this->db->select('
-            tb_user.*, tb_role.id_admin AS id_role, tb_role.name, tb_role.description,
-            ');
-        $this->db->join('tb_role', 'tb_user.id_admin_role = tb_role.id_admin');
-        $this->db->from($this->table);
-        $this->db->where($this->id, $id);
-        $query = $this->db->get();
-        return $query->row();
-    }
+    // public function get_by_id($id)
+    // {
+    //     $this->db->select('
+    //         user.*, tb_role.id_admin AS id_role, tb_role.name, tb_role.description,
+    //         ');
+    //     $this->db->join('tb_role', 'user.id_admin_role = tb_role.id_admin');
+    //     $this->db->from($this->table);
+    //     $this->db->where($this->id, $id);
+    //     $query = $this->db->get();
+    //     return $query->row();
+    // }
 }

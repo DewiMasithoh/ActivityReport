@@ -3,10 +3,9 @@
 
 	<div class="login-logo">
 		<!-- <a href="<?php echo base_url(); ?>">
-		<b><?php echo $site['nama_website']?></b>
 		</a> -->
 		<a href="<?php echo base_url('../index.html'); ?>">
-		<img style="max-width:30%;" src="<?php echo base_url("assets/upload/images/$favicon"); ?>" alt="">
+		<!-- <img style="max-width:30%;" src="<?php echo base_url("assets/upload/images/$favicon"); ?>" alt=""> -->
 		</a>
 		<h3>Activity Report</h3>
 	</div>
