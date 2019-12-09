@@ -76,8 +76,8 @@ class Auth extends MY_Controller
     {
         // $site = $this->Konfigurasi_model->listing();
         $data = array(
-            'title'     => 'Login Activity Report',
-            'favicon'   => 'favicon.png',
+            'title'     => 'Login',
+            'favicon'   => 'logo.png',
             'site'      => 'Activity Report'
         );
         //melakukan pengalihan halaman sesuai dengan levelnya
@@ -101,10 +101,10 @@ class Auth extends MY_Controller
                 $data = $this->Auth_model->check_account($this->input->post('username'), $this->input->post('password'));
 
                 //jika bernilai TRUE maka alihkan halaman sesuai dengan level nya
-                // if ($data->id_role == '1') {
-                //     redirect('admin/home');
-                // }
-                if($data->id_role == '2') {
+                if ($data->id_role == '1') {
+                    redirect('admin/home');
+                }
+                elseif ($data->id_role == '2') {
                     redirect('project_manager/home');
                 }
                 elseif ($data->id_role == '4') {

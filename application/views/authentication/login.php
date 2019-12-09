@@ -2,7 +2,11 @@
 <div class="box-login">
 
 	<div class="login-logo">
+		<!-- <a href="<?php echo base_url(); ?>">
+		<b><?php echo $site['nama_website']?></b>
+		</a> -->
 		<a href="<?php echo base_url('../index.html'); ?>">
+		<img style="max-width:30%;" src="<?php echo base_url("assets/upload/images/$favicon"); ?>" alt="">
 		</a>
 		<h3>Activity Report</h3>
 	</div>
@@ -29,6 +33,11 @@
 			</div>
 		</form>
 		<form action="<?php echo base_url('../'); ?>">
+		<div class="row" >		
+				<div class="col-xs-12 col-sm-6 col-md-6 text-center" id="login-btn">
+					<button value="login" class="login-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Home</button>
+				</div>
+			</div>
 		</form>
 	</div>
 	<div id="myalert">
