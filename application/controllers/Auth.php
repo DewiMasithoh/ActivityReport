@@ -107,7 +107,7 @@ class Auth extends MY_Controller
                 if($data->id_role == '2') {
                     redirect('project_manager/home');
                 }
-                elseif ($data->id_role == '4') {
+                elseif($data->id_role == '4') {
                     redirect('officer/home');
                 }
             } else {
