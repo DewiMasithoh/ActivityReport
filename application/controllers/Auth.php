@@ -76,8 +76,8 @@ class Auth extends MY_Controller
     {
         // $site = $this->Konfigurasi_model->listing();
         $data = array(
-            'title'     => 'Login',
-            'favicon'   => 'logo.png',
+            'title'     => 'Login Activity Report',
+            'favicon'   => 'favicon.png',
             'site'      => 'Activity Report'
         );
         //melakukan pengalihan halaman sesuai dengan levelnya
