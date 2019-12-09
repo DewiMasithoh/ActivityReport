@@ -66,15 +66,15 @@ class Auth_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    // public function get_by_id($id)
-    // {
-    //     $this->db->select('
-    //         user.*, tb_role.id_admin AS id_role, tb_role.name, tb_role.description,
-    //         ');
-    //     $this->db->join('tb_role', 'user.id_admin_role = tb_role.id_admin');
-    //     $this->db->from($this->table);
-    //     $this->db->where($this->id, $id);
-    //     $query = $this->db->get();
-    //     return $query->row();
-    // }
+    public function get_by_id($id)
+    {
+        $this->db->select('
+            user.*, role.id_admin AS id_role, role.name, role.description,
+            ');
+        $this->db->join('role', 'user.id_admin_role = role.id_admin');
+        $this->db->from($this->table);
+        $this->db->where($this->id, $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
 }
